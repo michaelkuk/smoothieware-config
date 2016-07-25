@@ -2,11 +2,6 @@ language: node_js
 node_js:
     - 4
 
-before_install:
-    -nvm ls-remote
-install:
-    - npm install
-after_script:
+after_scripts:
     - npm run build
-    - npm run test
     - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
